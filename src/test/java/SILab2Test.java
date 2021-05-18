@@ -88,6 +88,24 @@ class SILab2Test {
         e = assertThrows(
                 RuntimeException.class,
                 () -> instance.function(Collections.singletonList(
+                        new Time(24, 0, 10)
+                ))
+        );
+        assertTrue(e.getMessage().contains(exceptionMessages[4]),
+                "Expected: "+exceptionMessages[4]);
+
+        e = assertThrows(
+                RuntimeException.class,
+                () -> instance.function(Collections.singletonList(
+                        new Time(24, 10, 0)
+                ))
+        );
+        assertTrue(e.getMessage().contains(exceptionMessages[4]),
+                "Expected: "+exceptionMessages[4]);
+
+        e = assertThrows(
+                RuntimeException.class,
+                () -> instance.function(Collections.singletonList(
                         new Time(24, 10, 10)
                 ))
         );
